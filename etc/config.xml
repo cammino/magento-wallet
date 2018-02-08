@@ -1,0 +1,85 @@
+<config>
+  <modules>
+    
+    <Cammino_Wallet>
+      <version>0.0.1</version>
+      <depends>
+        <Mage_Payment />
+      </depends>
+    </Cammino_Wallet>
+  </modules>
+  
+  <global>
+    
+    <models>
+      <cammino_wallet>
+        <class>Cammino_Wallet_Model</class>
+        <resourceModel>cammino_wallet_resource</resourceModel>
+      </cammino_wallet>
+      <cammino_wallet_resource>
+        <class>Cammino_Wallet_Model_Resource</class>
+        <entities>
+          <wallet>
+            <table>cammino_wallet</table>
+          </wallet >
+        </entities>
+      </cammino_wallet_resource>
+    </models>
+    
+    <resources>
+      <cammino_wallet_setup>
+        <setup>
+          <module>Cammino_Wallet</module>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </cammino_wallet_setup>
+      
+      <cammino_wallet_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </cammino_wallet_write>
+      
+      <cammino_wallet_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </cammino_wallet_read>
+
+      <connection>
+        <use>core_setup</use>
+      </connection>
+    </resources>
+    
+    <blocks>
+      <cammino_wallet>
+        <class>Cammino_Wallet_Block</class>
+      </cammino_wallet>
+    </blocks>
+    
+    <sales>
+      <quote>
+        <totals>
+          <cammino_wallet>
+            <class>Cammino_Wallet_Model_Sales_Quote_Address_Total_Tax</class>
+          </cammino_wallet>
+        </totals>
+      </quote>
+    </sales>
+  </global>
+  
+  <frontend>
+    <routers>
+      <cammino_wallet>
+        <use>standard</use>
+        <args>
+          <module>Cammino_Wallet</module>
+          <frontName>cammino_wallet</frontName>
+        </args>
+      </cammino_wallet>
+    </routers>
+  </frontend>
+  
+</config>
